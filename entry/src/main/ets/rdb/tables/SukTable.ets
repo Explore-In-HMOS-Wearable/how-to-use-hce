@@ -12,12 +12,12 @@ export class SUKTable {
   }
 
   static delete(dbSUK: DbSUK) {
-    let pre = new relationalStore.RdbPredicates(SUKTable.tableName).equalTo('id', dbSUK.id);
+    const pre = new relationalStore.RdbPredicates(SUKTable.tableName).equalTo('id', dbSUK.id);
     Rdb.instance.delete(SUKTable.tableName, pre);
   }
 
   static deleteAll() {
-    let pre = new relationalStore.RdbPredicates(SUKTable.tableName);
+    const pre = new relationalStore.RdbPredicates(SUKTable.tableName);
     Rdb.instance.delete(SUKTable.tableName, pre);
   }
 

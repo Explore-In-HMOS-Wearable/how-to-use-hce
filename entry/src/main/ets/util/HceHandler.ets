@@ -24,7 +24,7 @@ export default class HceHandler {
     if (canIUse('SystemCapability.Communication.NFC.Core') && cardEmulation.hasHceCapability()) {
       try {
         const hceElementName: bundleManager.ElementName = {
-          bundleName: 'com.hmosdemos.hcepayment', // TODO: this should match with the app's bundle
+          bundleName: 'com.hmosdemos.hcepayment', // TODO: this must match with the app's bundle
           abilityName: 'EntryAbility',
           moduleName: 'entry'
         };
@@ -49,8 +49,8 @@ export default class HceHandler {
 
           // get card data from db
           await Rdb.instance.init(context);
-          let card = CardTable.get();
-          let suk = SUKTable.getLast();
+          const card = CardTable.get();
+          const suk = SUKTable.getLast();
 
           if (card && suk) {
             // TODO: make payment

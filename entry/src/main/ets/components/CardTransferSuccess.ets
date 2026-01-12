@@ -13,7 +13,7 @@ export default struct CardTransferSuccess {
             .fontColor([Color.Green])
             .fontSize(24)
             .margin({ bottom: 8 });
-          Text(`Card Tansfer Success, Remaining: ${this.sukCount}`);
+          Text(`Card Transfer Success, Remaining: ${this.sukCount}`);
         }
         .size({ width: '70%', height: '70%' })
         .alignItems(HorizontalAlign.Center)

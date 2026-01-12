@@ -77,15 +77,15 @@ export class Rdb {
   query(table: string, predicates: relationalStore.RdbPredicates,
     columns?: string[]): relationalStore.ResultSet | undefined {
     if (!this._checkDatabase()) {
-      return;
+      return undefined;
     }
 
     try {
-      let results = this._database!.querySync(predicates, columns);
+      const results = this._database!.querySync(predicates, columns);
       return results;
     } catch (e) {
       console.error(`${table} query error, e: ${e.code} ${e}`);
-      return;
+      return undefined;
     }
   }
 
@@ -94,15 +94,15 @@ export class Rdb {
    */
   querySql(table: string, sql: string): relationalStore.ResultSet | undefined {
     if (!this._checkDatabase()) {
-      return;
+      return undefined;
     }
 
     try {
-      let results = this._database!.querySqlSync(sql);
+      const results = this._database!.querySqlSync(sql);
       return results;
     } catch (e) {
       console.error(`${table} querySql error, e: ${e.code} ${e}`);
-      return;
+      return undefined;
     }
   }
 
@@ -122,7 +122,7 @@ export class Rdb {
   }
 
   /**
-   * delete data
+   * this will delete data
    */
   delete(table: string, predicates: relationalStore.RdbPredicates) {
     if (!this._checkDatabase()) {
